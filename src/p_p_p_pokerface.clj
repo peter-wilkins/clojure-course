@@ -1,7 +1,7 @@
 (ns p-p-p-pokerface)
 
-(defn rank [card]
-  nil)
+(defn rank [[r _]]
+  (str r))
 
 (defn suit [card]
   nil)
