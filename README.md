@@ -7,7 +7,7 @@ Focuses on:
 - use the repl for fast learning feedback.
 - writing human friendly code from the start
 - avoiding clojure's pain points 
-- uses physical metaphor's to make learning problems relatable
+- uses familiar problem domains
 
 Setup
 - Join [Clojurians on Slack.](http://clojurians.net/) (most important step - google then ask on beginners if you get stuck at any point) 
