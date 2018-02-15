@@ -16,37 +16,46 @@
     (/ 5)                                                   ; divide by 5
     (- 2)                                                   ; minus 2
     (* 3)                                                   ; multiply by 3
-    (+ 12))                                                 ; finally add 12
+    (+ 12)
+    )                                                 ; finally add 12
 
 ; here again with comma's marking where the result of each form id threaded (commas are whitespace in clojure)
 (-> 20
-    (/,, 5)
-    (-,, 2)
-    (*,, 3)
-    (+,, 12))
+    (/ , 5)
+    (- , 2)
+    (* , 3)
+    (+ , 12)
+    )
+; although it is not standard practice, I put the final bracket(s) on the next line.
+; Then I can quickly comment out parts of the pipeline (with a ;) for debugging along the chain - try it now.
 
 ; if we use the thread last macro the result is threaded as the last argument.
 ; Do the following pairs of forms have the same results?
 (-> 10
-    (*,, 3)
-    (+,, 12))
+    (* , 3)
+    (+ , 12)
+    )
 (->> 10
-     (* 3,,)
-     (+ 12,,))                                              ; add and multiply are associative - the order of the arguments don't matter
+     (* 3 ,)
+     (+ 12 ,)
+     )                                              ; add and multiply are associative - the order of the arguments don't matter
 
 (-> 21
-    (/,, 3)
-    (-,, 2))
+    (/ , 3)
+    (- , 2)
+    )
 (->> 21
-     (/ 3,,)
-     (- 2,,))                                               ; divide and minus are not associative and the order does matter
+     (/ 3 ,)
+     (- 2 ,)
+     )                                               ; divide and minus are not associative and the order does matter
 
 ; clojure collection functions take the collection as the last argument
 (apply + (filter odd? [1 2 3 4 5 6 7 8 9]))
 
 (->> [1 2 3 4 5 6 7 8 9]
      (filter odd?,,,)
-     (apply +,,,))
+     (apply +,,,)
+     )
 
 ; The power of pipelines comes from writing code with only one path.
 ; Avoiding branching with if makes code straightforward (literally) and easy to reason about.
