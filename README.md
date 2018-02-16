@@ -20,9 +20,10 @@ Setup
 
 
 
-Exercises:
+Recommended Order for Exercises:
 - src/thread-the-needle.clj
 - src/p-p-p-pokerface.clj
+- src/specter-gadget.clj
 
 Work in progress - if you find any issues or have any suggestions please leave an issue.
 
