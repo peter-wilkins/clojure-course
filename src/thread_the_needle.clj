@@ -81,3 +81,19 @@
 ; https://clojuredocs.org/clojure.core/second
 
 ; extra credit: read about as->, some->, some->> and cond-> at https://clojure.org/guides/threading_macros
+
+
+(-> {:counter "10"}
+    :counter
+    (Integer/parseInt)
+    inc)
+
+(-> {}
+    :counter
+    (Integer/parseInt) ; null pointer exception!
+    inc)
+
+(some-> {}
+        :counter
+        (Integer/parseInt) ; nil
+        inc)
