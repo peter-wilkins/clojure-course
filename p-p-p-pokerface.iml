@@ -17,7 +17,7 @@
     <orderEntry type="library" name="Leiningen: clj-tuple:0.2.2" level="project" />
     <orderEntry type="library" name="Leiningen: clojure-complete:0.2.4" level="project" />
     <orderEntry type="library" name="Leiningen: colorize:0.1.1" level="project" />
-    <orderEntry type="library" name="Leiningen: com.rpl/specter:1.0.4" level="project" />
+    <orderEntry type="library" name="Leiningen: com.rpl/specter:1.1.0" level="project" />
     <orderEntry type="library" name="Leiningen: commons-codec:1.10" level="project" />
     <orderEntry type="library" name="Leiningen: environ:1.1.0" level="project" />
     <orderEntry type="library" name="Leiningen: fipp:0.6.10" level="project" />
