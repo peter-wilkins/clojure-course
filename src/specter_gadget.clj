@@ -286,3 +286,28 @@
   (print-results
     (mark-wealth-status world))
   )
+
+
+; hint: transform and collect. Note that collected values are in a vector
+(defn mark-wealth-status-bool [world]
+      "adds ':rich true' to user records with >= $100,000 otherwise ':rich false'"
+      (transform [:people ALL (collect :money) :rich]
+                 (fn [[money] _] (if (>= money 100000) true false))
+                 world))
+
+(comment
+  (print-results
+    (mark-wealth-status-bool world))
+  )
+
+; a clojure function
+(defn update-multi [m keys f]
+      "updates values for given keys in map m with function f"
+      (reduce (fn [m k] (update m k f)) m keys))
+
+; use specter. hint: transform, submap and MAP-VALS
+(defn update-multi* [m keys f]
+      nil)
+
+(update-multi {:a 500 :b 600 :c 700} [:a :b] inc)
+(update-multi* {:a 500 :b 600 :c 700} [:a :b] inc)
