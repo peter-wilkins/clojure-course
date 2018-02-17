@@ -1,5 +1,6 @@
 (ns specter-gadget
-  (:require [com.rpl.specter :refer :all]))
+  (:require [com.rpl.specter :refer :all]
+            [clojure.pprint :refer [pprint]]))
 
 ; Nested maps like this is very common these days.
 (def m {:username "sally"
@@ -245,12 +246,36 @@
     (bank-recent-charity-bonus world))
   )
 
-; hint setval and if-path
+; hint: setval and if-path
 (defn mark-wealth-status [world]
-  "adds :rich to user records with >= $100,000 otherwise :not-so-rich"
-  nil)
+  "adds ':rich true' to user records with >= $100,000 otherwise ':not-so-rich true'"
+  nil
+  )
 
 (comment
   (print-results
     (mark-wealth-status world))
   )
+
+; hint: transform and collect. Note that collected values are in a vector
+(defn mark-wealth-status-bool [world]
+  "adds ':rich true' to user records with >= $100,000 otherwise ':rich false'"
+  nil
+  )
+
+(comment
+  (print-results
+    (mark-wealth-status-bool world))
+  )
+
+; a clojure function
+(defn update-multi [m keys f]
+  "updates values for given keys in map m with function f"
+  (reduce (fn [m k] (update m k f)) m keys))
+
+; use specter. hint: transform, submap and MAP-VALS
+(defn update-multi* [m keys f]
+  nil)
+
+(update-multi {:a 500 :b 600 :c 700} [:a :b] inc)
+(update-multi* {:a 500 :b 600 :c 700} [:a :b] inc)
