@@ -31,14 +31,18 @@
         [doc]))
 ; common transducer contexts: transduce, sequence, into, eduction, async/chan, async/pipeline
 
-; specter: this isn't correct yet...
-(select [:content ALL
-         (filterer :tag #(= % :chapter))
-         (filterer :attrs :name #(= % "Introduction"))
-         :content ALL
-         (filterer :tag #(= % :para))
-         :content ALL
-         string?] doc)
+; specter:
+(time (select [:content
+         ALL
+         (selected? :tag (pred= :chapter))
+         (selected? :attrs :name (pred= "Introduction"))
+         :content
+         ALL
+         (selected? :tag (pred= :para))
+         :content
+         ALL
+         string?]
+        doc))
 
 ; Composing transducers
 ; here is a transducer that does the same as [:content ALL]
