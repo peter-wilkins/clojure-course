@@ -1,6 +1,9 @@
 (ns tea-tray-sync
   (:require [clojure.core.async :as async]
             [clojure.core.reducers :as r]))
+
+; Work In Progress
+
 ; make a channel with a buffer size of 1
 (def a-channel (async/chan 1))
 

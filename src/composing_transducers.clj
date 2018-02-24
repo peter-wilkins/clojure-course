@@ -109,3 +109,5 @@
 (def descendants* (comp xml-seq* cat))
 
 (eduction descendants* doc)
+
+; TODO add exercises for JSON version
